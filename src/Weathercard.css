@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('./weather\ bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  margin: 20px;
+  height: auto;
+}
+
+.weather-card {
+  background: linear-gradient(135deg, #73a5ff, #5477f5);
+  color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.weather-city {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word;
+}
+
+.weather-info {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.weather-info p {
+  margin: 8px 0;
+}
+
+.weather-info strong {
+  font-weight: bold;
+}
+
+h1 {
+  font-style: bold;
+  color: black;
+  font-weight: 2000;
+}
+
+input {
+  width: 80%;
+  max-width: 250px;
+  outline: none;
+  background: navajowhite;
+  padding: 12px;
+  font-size: 14px;
+  margin-right: 12px;
+  border-radius: 15px;
+}
+
+input::placeholder {
+  font-size: 16px;
+  color: gray;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  background: blueviolet;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container {
+    margin: 10px;
+  }
+
+  .weather-card {
+    padding: 15px;
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  .weather-city {
+    font-size: 1.5rem;
+  }
+
+  .weather-info {
+    font-size: 0.85rem;
+  }
+
+  input {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-card {
+    padding: 10px;
+    font-size: 0.8rem;
+    max-width: 95%; /* Allows for better spacing */
+  }
+
+  .weather-city {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .weather-info {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+}
