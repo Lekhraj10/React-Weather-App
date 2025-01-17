@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherCard from './WeatherCard';
 
@@ -8,7 +8,7 @@ const App = () => {
   const [error, setError] = useState('');
 
   const fetchWeather = async () => {
-    const API_KEY = 'af80d326e718e2202738d3e9a6185d9b'; // Replace with your OpenWeatherMap API key
+    const API_KEY = process.env.REACT_APP_API_KEY; // Replace with your OpenWeatherMap API key
     const BASE_URL = `https://api.openweathermap.org/data/2.5/weather`;
 
     try {
@@ -19,7 +19,21 @@ const App = () => {
           units: 'metric', // Fetch temperature in Celsius
         },
       });
-      setWeatherData(response.data);
+
+      // Fetch full country name using the country code
+      const countryCode = response.data.sys.country;
+      const countryResponse = await axios.get(`https://restcountries.com/v3.1/alpha/${countryCode}`);
+      const countryName = countryResponse.data[0].name.common;
+
+      // Set the weather data including the full country name
+      setWeatherData({
+        city: response.data.name,
+        country: countryName, // Full country name
+        main: response.data.main,
+        weather: response.data.weather[0], // Use first weather object for description
+        wind: response.data.wind,
+      });
+
       setError('');
     } catch (err) {
       setWeatherData(null);
